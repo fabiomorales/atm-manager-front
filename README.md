@@ -23,3 +23,7 @@ Para iniciar o prjeto em modo de desenvolvimento utilize o comando abaixo
 ```
 yarn dev
 ```
+Ou
+```
+npm run dev
+```
