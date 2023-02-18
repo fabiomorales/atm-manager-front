@@ -2,6 +2,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Input, Typograph } from 'components/atoms';
 import { useAtmListProvider } from 'contexts/atms/AtmsProvider';
 import { useAuthProvider } from 'contexts/auth/AuthProvider';
+import { useModalProvider } from 'contexts/modal/ModalProvider';
+import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { createMovementService } from 'services/movement/createMovement';
@@ -11,7 +13,10 @@ import * as S from './styles';
 
 const SackAtmForm: FC<ResquestYourCardFormProps> = ({ className }) => {
   const { atmSelected } = useAtmListProvider();
+  const { setModal } = useModalProvider();
   const { loggedCustomer } = useAuthProvider();
+  const router = useRouter();
+
 
   const defaultValues: IAtmRegisterForm = {
     value: '',
@@ -42,12 +47,21 @@ const SackAtmForm: FC<ResquestYourCardFormProps> = ({ className }) => {
       customerId: loggedCustomer?.id ?? '',
     })
       .then((response) => {
-        console.log('response', response);
-
+        setModal({
+          show: true,
+          title: 'Sucesso',
+          paragraph: 'Saque efetuado com sucesso',
+          onClick: () => router.back(),
+        });
+        
         reset();
       })
       .catch((error) => {
-        console.log('error', error);
+        setModal({
+          show: true,
+          title: 'Erro',
+          paragraph: JSON.stringify(error?.response?.data?.message),
+        });
       });
   };
 
