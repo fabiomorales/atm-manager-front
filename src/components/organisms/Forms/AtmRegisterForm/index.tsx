@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Input, Typograph } from 'components/atoms';
 import { useModalProvider } from 'contexts/modal/ModalProvider';
+import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { atmRegisterService } from 'services/atm/register';
@@ -9,6 +10,7 @@ import { AtmRegisterFormProps, IAtmRegisterForm } from './interfaces';
 import * as S from './styles';
 
 const AtmRegisterForm: FC<AtmRegisterFormProps> = ({ className }) => {
+  const router = useRouter();
   const { setModal } = useModalProvider();
 
   const defaultValues: IAtmRegisterForm = {
@@ -56,6 +58,7 @@ const AtmRegisterForm: FC<AtmRegisterFormProps> = ({ className }) => {
           show: true,
           title: 'Sucesso',
           paragraph: 'ATM Criado com sucesso',
+          onClick: () => router.back(),
         });
 
         reset();

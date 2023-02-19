@@ -50,7 +50,7 @@ const Movement: FC = () => {
             </Typograph>
           </Grid>
           {movemetResponse.length > 0 ? (
-            <S.ExtractContent width="100%" gridTemplateColumns="1fr 1Fr 1fr" gridTemplateRows="1fr 1Fr 1fr" gridGap={2}>
+            <S.ExtractContent width="100%" gridTemplateColumns="1fr 1Fr 1fr" gridGap={2}>
               {movemetResponse.map((movement, index) => (
                 <Fragment key={index}>
                   <Typograph type="headingsH3Regular" color="gray700" textAlign="start">

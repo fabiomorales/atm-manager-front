@@ -23,12 +23,8 @@ const Sack: FC = () => {
       router.push(routerPaths.home.default);
     }
 
-    if (!atmList?.length) {
-      listAtm();
-    }
+    listAtm();
   }, []);
-
-  console.log('atmList', atmList);
 
   return (
     <>

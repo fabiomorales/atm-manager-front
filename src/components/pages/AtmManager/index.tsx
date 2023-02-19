@@ -12,7 +12,8 @@ const AtmManager: FC = () => {
     {
       show: true,
       title: 'Cadastro De Cliente',
-      onClick: () => router.push(routerPaths.atmManager.customerRegister),
+      onClick: () =>
+        router.push({ pathname: routerPaths.atmManager.customerRegister, query: { fromPath: router.asPath } }),
     },
     {
       show: false,

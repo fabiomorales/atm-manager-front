@@ -57,7 +57,7 @@ const CustomerRegisterForm: FC<CustomerRegisterFormProps> = ({ className }) => {
           show: true,
           title: 'Sucesso',
           paragraph: 'Cliente cadastrado com sucesso',
-          onClick: () => router.push(routerPaths.login.default),
+          onClick: () => router.back(),
         });
       })
       .catch((error) => {

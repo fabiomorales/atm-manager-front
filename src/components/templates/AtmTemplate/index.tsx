@@ -13,9 +13,9 @@ const AtmTemplate: FC<IAtmTemplateProps> = ({ className, variant, title, childre
   return (
     <S.AtmTemplateContainer className={className} bgImage="/assets/images/atm-bg.jpg" {...props}>
       <S.AtmTemplateContent>
-        {(variant === 'secondary' || variant === 'tertiary') && (
+        {variant !== 'primary' && (
           <S.AtmTemplateHeader>
-            {variant === 'secondary' && (
+            {(variant === 'secondary' || variant === 'quarteary') && (
               <S.AtmTemplateBackButton onClick={() => router.back()}>
                 <Image
                   src="/assets/images/arrow-left.jpg"
@@ -35,11 +35,13 @@ const AtmTemplate: FC<IAtmTemplateProps> = ({ className, variant, title, childre
                 {title}
               </S.TextTitle>
             )}
-            <S.AtmTemplateLogoutButton onClick={() => logout()}>
-              <Typograph type="headingsH3Medium" color="gray700">
-                Sair
-              </Typograph>
-            </S.AtmTemplateLogoutButton>
+            {(variant === 'secondary' || variant === 'tertiary') && (
+              <S.AtmTemplateLogoutButton onClick={() => logout()}>
+                <Typograph type="headingsH3Medium" color="gray700">
+                  Sair
+                </Typograph>
+              </S.AtmTemplateLogoutButton>
+            )}
           </S.AtmTemplateHeader>
         )}
         {children}

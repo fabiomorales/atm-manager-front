@@ -32,7 +32,6 @@ export const AuthProvider: FC<IAuthProviderProps> = ({ children }) => {
         }
       })
       .catch((error) => {
-        console.log('error', error);
         setModal({
           show: true,
           title: 'Erro',

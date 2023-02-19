@@ -34,7 +34,9 @@ const Login: FC = () => {
             type="headingsH2Medium"
             color="smBlue100"
             textAlign="center"
-            onClick={() => router.push(routerPaths.atmManager.customerRegister)}
+            onClick={() =>
+              router.push({ pathname: routerPaths.atmManager.customerRegister, query: { fromPath: router.asPath } })
+            }
             cursor="pointer"
           >
             Clique aqui

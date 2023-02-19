@@ -4,7 +4,7 @@ export interface IBGImage {
   bgImage?: string;
 }
 
-export type IAtmTemplateVariant = 'primary' | 'secondary' | 'tertiary';
+export type IAtmTemplateVariant = 'primary' | 'secondary' | 'tertiary' | 'quarteary';
 
 export interface IAtmTemplateProps extends ButtonHTMLAttributes<HTMLDivElement> {
   variant: IAtmTemplateVariant;
